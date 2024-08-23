@@ -32,14 +32,14 @@ void cadastrar(cadastro *cad){
 		getchar();
 		fgets(cad[i].nome, sizeof(cad[i].nome), stdin);
 	
-	  printf("Digite a nota da P1: ");
+	  	printf("Digite a nota da P1: ");
 		scanf("%f", &cad[i].P1);
 	
 		printf("Digite a nota da P2: ");
 		scanf("%f", &cad[i].P2);
 
 		cad[i].media=(cad[i].P1+cad[i].P2)/2;
-    printf("\nNome: %s\nMédia: %f\n\n", cad[i].nome, cad[i].media);
+    		printf("\nNome: %s\nMédia: %f\n\n", cad[i].nome, cad[i].media);
 	}
 }
 
@@ -49,17 +49,17 @@ void classificar(cadastro *cad){
 
 	//Bubble sort
 	for(int i=0; i<19; i++){
-    for(int j=i+1; j<20; j++){
-    	if(cad[i].media<cad[j].media){
-	    	aux=cad[i];
-	    	cad[i]=cad[j];
-	    	cad[j]=aux;
-	    }
-    }
-  }
-  for(int i=0; i<20; i++){
-	  printf("%iº %s", i+1, cad[i].nome);
-  }
+    		for(int j=i+1; j<20; j++){
+    			if(cad[i].media<cad[j].media){
+	    			aux=cad[i];
+	    			cad[i]=cad[j];
+	    			cad[j]=aux;
+	    		}
+    		}
+  	}
+  	for(int i=0; i<20; i++){
+		printf("%iº %s", i+1, cad[i].nome);
+  	}
 }
 
 void corrigir(cadastro *cad){
@@ -76,7 +76,7 @@ void corrigir(cadastro *cad){
 
 	printf("ATUALIZAR CADASTRO\n\n");
 	printf("Digite o nome: ");
-  getchar();
+  	getchar();
 	fgets(cad[corrigir_cadastro].nome, sizeof(cad[corrigir_cadastro].nome), stdin);
 	printf("Digite a nota da P1: ");
 	scanf("%f", &cad[corrigir_cadastro].P1);
@@ -98,8 +98,8 @@ void pesquisar(cadastro *cad){
 	for(int i=0; i<20; i++){
 		if(strcmp(nome, cad[i].nome)==0){
 			printf("Nome: %s\nMédia: %f\n", cad[i].nome, cad[i].media);
-    }
-  }
+    		}
+  	}
 }
 void listarAprovados(cadastro *cad){
 	printf("LISTA DOS APROVADOS\n\n");
@@ -114,7 +114,7 @@ void listarReprovados(cadastro *cad){
 	for(int i=0; i<20; i++){
 		if(cad[i].media<7){
 			printf("%s\n", cad[i].nome);
-    }
+    		}
 	}
 }
 
@@ -122,44 +122,44 @@ int main(){
 	int indice = 0;
 	cadastro cad[20];
 	
-  do{
-    printf("\n\n");
-    printf("MENU PRINCIPAL\n\n");
-    printf("1. Cadastrar alunos e notas\n");
-    printf("2. Classificar os alunos cadastrados\n");
-    printf("3. Corrigir alunos e/ou notas que tenham sido cadastradas com erros\n");
-    printf("4. Pesquisar alunos por nome\n");
-    printf("5. Listar alunos aprovados\n");
-    printf("6. Listar alunos reprovados\n");
-    printf("7. Sair do menu\n\n\n");
-    printf("Digite o número da opção desejada: ");
-    scanf("%i", &indice);
-    printf("\n\n\n");
-
-    switch(indice){
-    	case 1: 
-    		cadastrar(cad);
-    		break;
-    	case 2:
-    		classificar(cad);
-    		break; 
-    	case 3:
-    		corrigir(cad);
-    		break;
-    	case 4:
-    		pesquisar(cad);
-    		break;
-    	case 5:
-    		listarAprovados(cad);
-    		break;
-    	case 6:
-    		listarReprovados(cad);
-    		break;
-    	case 7:
-    		printf("Saindo do menu…");
-    		return 0;
-    	default:
-    		printf("Opção inválida\n");
-    }
-  }while(indice!=7);
+	do{
+	    printf("\n\n");
+	    printf("MENU PRINCIPAL\n\n");
+	    printf("1. Cadastrar alunos e notas\n");
+	    printf("2. Classificar os alunos cadastrados\n");
+	    printf("3. Corrigir alunos e/ou notas que tenham sido cadastradas com erros\n");
+	    printf("4. Pesquisar alunos por nome\n");
+	    printf("5. Listar alunos aprovados\n");
+	    printf("6. Listar alunos reprovados\n");
+	    printf("7. Sair do menu\n\n\n");
+	    printf("Digite o número da opção desejada: ");
+	    scanf("%i", &indice);
+	    printf("\n\n\n");
+	
+		switch(indice){
+			case 1: 
+	    			cadastrar(cad);
+	    			break;
+	    		case 2:
+	    			classificar(cad);
+	    			break; 
+	    		case 3:
+	    			corrigir(cad);
+	    			break;
+	    		case 4:
+	    			pesquisar(cad);
+	    			break;
+	    		case 5:
+	    			listarAprovados(cad);
+	    			break;
+	    		case 6:
+	    			listarReprovados(cad);
+	    			break;
+	    		case 7:
+	    			printf("Saindo do menu…");
+	    			return 0;
+	    		default:
+	    			printf("Opção inválida\n");
+		}
+	}while(indice!=7);
 }

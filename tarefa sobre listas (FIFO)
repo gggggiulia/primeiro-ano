@@ -126,6 +126,8 @@ void localizacao(){
     for(int i=inicio; i<max; i++){
         if(fila[i]==pesquisa){
             printf("%i está em %iº lugar na fila\n\n", fila[i], i+1);
+        }else{
+            printf("O elemento não foi encontrado nessa fila.\n\n");
         }
     }
 }

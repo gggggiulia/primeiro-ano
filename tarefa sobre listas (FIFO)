@@ -55,7 +55,7 @@ int main(){
 }
 
 void insercao(){
-    printf("\n\nInserir valores na fila:\n");
+    printf("Inserir valores na fila:\n");
     while(contador < max){
         if(contador==0){
             scanf("%i", &fila[contador]);
@@ -97,10 +97,14 @@ void exibicao(){
 }
 
 void posicionamento(){
-    for(int i=inicio; i<max; i++){
-        printf("%i) %i\n", i - inicio +1, fila[i]);
+    if(contador==0){
+        printf("*Erro. A fila está vazia.*\n\n");
+    }else{
+        for(int i=inicio; i<max; i++){
+            printf("%i) %i\n", i - inicio +1, fila[i]);
+        }
+        printf("\n\n");
     }
-    printf("\n\n");
 }
 
 void vazia(){
@@ -121,13 +125,19 @@ void cheia(){
 
 void localizacao(){
     int pesquisa;
+    int encontrado = 0;
     printf("Digite o elemento que deseja localizar: ");
     scanf("%i", &pesquisa);
     for(int i=inicio; i<max; i++){
         if(fila[i]==pesquisa){
             printf("%i está em %iº lugar na fila\n\n", fila[i], i+1);
-        }else{
-            printf("O elemento não foi encontrado nessa fila.\n\n");
+            encontrado = 1;
         }
     }
+    
+    if(!encontrado){
+        printf("*O elemento digitado não foi encontrado na fila.*");
+    }
+    
+    printf("\n\n");
 }
